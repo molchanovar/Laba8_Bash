@@ -34,7 +34,7 @@ Bash_scripting
 
 ~~~
 
-2. Есть основной большой лог [B]accesses.log[/B] из него построчно копируются файлы в [B]my.log[/B] (./test.sh /home/ubuntupc/Downloads/access.log 1> ~/Downloads/my.log)
+2. Есть основной большой лог <b>accesses.log</b> из него построчно копируются файлы в <b>my.log</b> (./test.sh /home/ubuntupc/Downloads/access.log 1> ~/Downloads/my.log)
 ~~~
 #!/bin/bash
 
@@ -82,4 +82,4 @@ echo "All response code from last start"
 awk '/HTTP/{print $9}' $logfile | sort | uniq -c | sort -nr | awk 'BEGIN {print "COUNT RESPONSE"} {print $1,$2}' | column -t
 echo "---------------------------------------"
 ~~~
-Результат исполнения скрипта пишется в файл [B]result[/B]
+Результат исполнения скрипта пишется в файл <b>result</b>
