@@ -1,6 +1,6 @@
 #! /bin/bash
 
-# Path to logFile (Передаем аргумент в консоли)
+# Path to logFile (Передаем аргумент в консоли - ./script /home/ubuntupc/Downloads/access.log)
 # logfile=/home/ubuntupc/Downloads/access.log
 logfile=$1
 
