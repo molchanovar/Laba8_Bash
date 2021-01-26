@@ -1,7 +1,8 @@
-#! /bin/bash
+#!/bin/bash
 
-# Path to logFile
-logfile=/home/ubuntupc/Downloads/access.log
+# Path to logFile (Передаем аргумент в консоли)
+# logfile=/home/ubuntupc/Downloads/access.log
+logfile=$1
 
 # 1. Top 10 IP with Req (1-line number, 2-IP, 3-Count)
 echo "Top 10 IP with count of Request"
