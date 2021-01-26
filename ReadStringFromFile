@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# Построчное чтение файла 
+while read LINE
+    do COMMAND
+done < FILE
+
+# Бесконечный цикл (do {тело цикла} done)
+while true
+do
+        echo hello
+        sleep 2
+done
+
+# Просмотр файла в режиме реального времени: 
+tail -f 
+
+# Перенаправления 
+2>/dev/null  - ошибки 
+1>my.log     - вывод результата
