@@ -34,7 +34,7 @@ Bash_scripting
 
 ~~~
 
-2. Есть основной большой лог [b]accesses.log[/b] из него построчно копируются файлы в [b]my.log[/b] (./test.sh /home/ubuntupc/Downloads/access.log 1> ~/Downloads/my.log)
+2. Есть основной большой лог [B]accesses.log[/B] из него построчно копируются файлы в [B]my.log[/B] (./test.sh /home/ubuntupc/Downloads/access.log 1> ~/Downloads/my.log)
 ~~~
 #!/bin/bash
 
@@ -52,3 +52,33 @@ done < $FILE
 wc my.log | awk '{print $1}' >> CountLines
 ~~~
 Из него основной скрипт будет получать номер строки на которой он остановился 
+
+4. Сам скрипт (script) на входе получает лог файл который далее обрабатывает: 
+~~~
+#! /bin/bash
+
+# Path to logFile
+#logfile=/home/ubuntupc/Downloads/access.log
+logfile=/home/ubuntupc/Downloads/my.log
+#logfile=$1
+
+# 1. Top 10 IP with Req (1-line number, 2-IP, 3-Count)
+echo "Top 10 IP with count of Request"
+awk '{print $1}' $logfile | sort | uniq -c | sort -rn | head -10 | awk 'BEGIN {print "Number IP COUNT"} {print FNR,$2,$1}' | column -t
+echo "---------------------------------------"
+
+# 2. Top 10 Req addresses
+echo "Top 10 Req addresses"
+awk '/ HTTP/ {print $7}' $logfile | sort | uniq -c | sort -rn | head -10 | awk 'BEGIN {print "COUNT ADDRESS"} {print $1,$2}' | column -t
+echo "---------------------------------------"
+
+# 3. Errors from last start
+echo "Errors from last start"
+awk '{if ($9 >= 400) print $9}' $logfile | sort | uniq -c | sort -nr | awk 'BEGIN {print "COUNT ERROR"} {print $1,$2}' | column -t
+echo "---------------------------------------"
+
+# 4. All response code from last start
+echo "All response code from last start"
+awk '/HTTP/{print $9}' $logfile | sort | uniq -c | sort -nr | awk 'BEGIN {print "COUNT RESPONSE"} {print $1,$2}' | column -t
+echo "---------------------------------------"
+~~~
