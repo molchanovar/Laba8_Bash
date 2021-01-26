@@ -10,7 +10,8 @@ while read LINE; do
      sleep 2
 done < $FILE
 
-
+# Перенапрвление вывода в файл
+./test.sh /home/ubuntupc/Downloads/access.log 1> ~/Downloads/my.log
 
 # Построчное чтение файла 
 while read LINE
