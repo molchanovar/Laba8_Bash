@@ -1,4 +1,16 @@
-#!/bin/sh
+#!/bin/bash
+
+# Скрипт на построчноу чтение из файла
+# Имя скрипта и путь до файла из которого читаем 
+./test.sh /home/ubuntupc/Downloads/access.log
+
+FILE=$1
+while read LINE; do
+     echo "Это строка: $LINE"
+     sleep 2
+done < $FILE
+
+
 
 # Построчное чтение файла 
 while read LINE
