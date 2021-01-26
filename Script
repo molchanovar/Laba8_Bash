@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /bin/bash
 
 # Path to logFile (Передаем аргумент в консоли)
 # logfile=/home/ubuntupc/Downloads/access.log
