@@ -8,7 +8,8 @@ more /home/ubuntupc/Downloads/access.log | awk '/ HTTP/ {print $7}' | sort | uni
 more /home/ubuntupc/Downloads/access.log | awk '/ HTTP/ {print $9}' | sort | uniq -c | sort -rn
 awk '{if ($9 >= 400) print $9}' access.log | sort | uniq -c | sort -nr
 
-# список всех кодов возврата с указанием их кол-ва с момента последнего запуска
+# список всех кодов возврата с указанием их кол-ва с момента последнего запуска (Все коды возврата) 
+awk '/HTTP/{print $9}' access.log | sort | uniq -c | sort -nr
 
 
 
