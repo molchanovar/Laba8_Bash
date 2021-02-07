@@ -2,7 +2,7 @@
 
 # Path to logFile
 #logfile=$HOME/Downloads/access.log
-logfile=$HOME/Downloads/temp.log
+logfile=./temp.log
 #logfile=$1
 
 num=$(head -1 $HOME/Downloads/CountLines)
