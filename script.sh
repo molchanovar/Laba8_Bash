@@ -1,11 +1,11 @@
 #! /bin/bash
 
-# Path to logFile ( - Update - Передаем аргумент в консоли - ./script /home/ubuntupc/Downloads/access.log)
-#logfile=/home/ubuntupc/Downloads/access.log
-#logfile=/home/ubuntupc/Downloads/my.log
+# Path to logFile
+#logfile=$HOME/Downloads/access.log
+#logfile=$HOME/Downloads/temp.log
 logfile=$1
 
-num=$(head -1 /home/ubuntupc/Downloads/CountLines)
+num=$(head -1 $HOME/Downloads/CountLines)
 #num=$2
 
 echo "File $1 has $num lines in it"
