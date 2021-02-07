@@ -16,8 +16,10 @@
 **access.log** - лог Nginx'а
 
 
+### How it works: 
+Запуск построчной записи в новый файл с логами `./test.sh access.log >> temp.log`
 
-Скрипт запускается раз в минуту
+Скрипт запускается раз в минуту `* * * * * $HOME/Downloads/script.sh >> %HOME/Downloads/resultRun`
 
 
 должна быть реализована защита от мультизапуска ??? 
