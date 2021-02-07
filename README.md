@@ -12,7 +12,8 @@
 ### файлы 
 Результат выполнения скрипта - файл **result.txt** -  он же приходит пользователю на почту.
 **script** - сам **Bash** скрипт, крутится в Cron и выполяняется раз в час. 
-
+**test.sh* - простой скрипт, выполняет построчное чтение лога, нужен для записи нового лога, который читается скриптом. 
+**access.log** - лог Nginx'а
 
 
 
@@ -85,7 +86,7 @@ echo "---------------------------------------"
 
 # 4. All response code from last start
 echo "All response code from last start"
-awk '/HTTP/{print $9}' $logfile | sort | uniq -c | sort -nr | awk 'BEGIN {print "COUNT RESPONSE"} {print $1,$2}' | column -t
+awk 'NR > '$NUM'' $logfile | awk '/HTTP/ {print $9}' | sort | uniq -c | sort -nr | awk 'BEGIN {print "COUNT RESPONSE"} {print $1,$2}' | column -t
 echo "---------------------------------------"
 ~~~
-Результат исполнения скрипта пишется в файл <b>result</b>
+Реiзультат исполнения скрипта пишется в файл <b>result</b>
