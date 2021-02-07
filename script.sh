@@ -2,13 +2,13 @@
 
 # Path to logFile
 #logfile=$HOME/Downloads/access.log
-#logfile=$HOME/Downloads/temp.log
-logfile=$1
+logfile=$HOME/Downloads/temp.log
+#logfile=$1
 
 num=$(head -1 $HOME/Downloads/CountLines)
 #num=$2
 
-echo "File $1 has $num lines in it"
+echo "File $logfile has $num lines in it"
 
 # 1. Top 10 IP with Req (1-line number, 2-IP, 3-Count)
 echo "Top 10 IP with count of Request"
@@ -37,6 +37,6 @@ echo "---------------------------------------"
 # 5. Count of lines in this moment 
 echo "Lines was counted in CountLines.txt"
 echo "Before was $num lines"
-count=$(cat $1 | wc -l)
+count=$(cat $logfile | wc -l)
 echo $count > CountLines
 echo "Now is $count lines"
