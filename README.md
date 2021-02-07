@@ -109,3 +109,28 @@ awk '{if ($9 >= 400) print $9}' access.log | sort | uniq -c | sort -nr
 ```
 awk '/HTTP/{print $9}' access.log | sort | uniq -c | sort -nr
 ```
+
+## P.S.
+Скрипт на построчноу чтение из файла
+```
+FILE=$1
+while read LINE; do
+     echo "Это строка: $LINE"
+     sleep 2
+done < $FILE
+```
+Бесконечный цикл (do {тело цикла} done)
+```
+while true
+do
+        echo hello
+        sleep 2
+done
+```
+Просмотр файла в режиме реального времени: 
+```
+tail -f 
+```
+Перенаправления 
+`2>/dev/null`  - ошибки 
+`1>my.log`     - вывод результата
