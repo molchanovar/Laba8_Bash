@@ -1,8 +1,6 @@
-#!/usr/bin/env bash
-
-lines () {
-    cat $1 | wc -l
-}
-
-num=$( lines $1 )
-echo "$num"
+# The reference to file 
+FILE=$1
+while read LINE; do
+     echo "$LINE"
+     sleep 2
+done < $FILE
