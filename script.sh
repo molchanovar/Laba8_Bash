@@ -5,7 +5,7 @@
 logfile=./temp.log
 #logfile=$1
 
-num=$(head -1 $HOME/Downloads/CountLines)
+num=$(head -1 $HOME/Downloads/CountLines.txt)
 #num=$2
 
 echo "File $logfile has $num lines in it"
@@ -38,5 +38,5 @@ echo "---------------------------------------"
 echo "Lines was counted in CountLines.txt"
 echo "Before was $num lines"
 count=$(cat $logfile | wc -l)
-echo $count > CountLines
+echo $count > CountLines.txt
 echo "Now is $count lines"
