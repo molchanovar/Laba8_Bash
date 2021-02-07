@@ -21,6 +21,10 @@
 
 Скрипт запускается раз в минуту `* * * * * $HOME/Downloads/script.sh >> %HOME/Downloads/resultRun`
 
+Работа почты тестировалась на Ubuntu 20.04 (установил пакет - `sudo apt install mailutils` с параметром `localOnly`).
+```
+cat $HOME/Downloads/resultRun | mailx -s 'Completed' localhost
+```
 
 должна быть реализована защита от мультизапуска ??? 
 
@@ -39,8 +43,9 @@
 # │ │ │ │ │
 # * * * * * <command to execute>
 
-#  * * * * * /home/ubuntupc/Downloads/script >> /home/ubuntupc/Downloads/result
-
+# * * * * * $HOME/Downloads/script.sh >> $HOME/Downloads/resultRun
+# * * * * * echo hello world >> $HOME/Downloads/resultRun
+# * * * * * cat $HOME/Downloads/resultRun | mailx -s 'Completed' localhost
 ~~~
 
 2. Есть основной большой лог <b>accesses.log</b> из него построчно копируются файлы в <b>my.log</b> (./test.sh /home/ubuntupc/Downloads/access.log 1> ~/Downloads/my.log)
