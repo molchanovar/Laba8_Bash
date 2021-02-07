@@ -91,7 +91,7 @@ awk '/HTTP/{print $9}' access.log | sort | uniq -c | sort -nr
 ```
 
 ## P.S.
-Скрипт на построчноу чтение из файла
+Скрипт на построчное чтение из файла
 ```
 FILE=$1
 while read LINE; do
