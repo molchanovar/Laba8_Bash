@@ -20,9 +20,10 @@
 * * * * * cat $HOME/Downloads/resultRun.txt | mailx -s 'Completed' localhost
 ```
 
-- Дать права на исполнение:
+- Дать права на исполнение скриптов и запись в файлы:
 ```
 sudo chmod +x script.sh count.sh 
+sudo chmod 666 CountLines.txt resultRun.txt temp.log
 ```
 
 - `./count.sh access.log >> temp.log` - Запустить скрипт построчного чтения лога **count.sh** и передать ему на вход лог файл **access.log**. Вывод перенаправить в новый лог файл **temp.log**
