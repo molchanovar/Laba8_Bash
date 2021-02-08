@@ -2,9 +2,11 @@
 
 # Path to logFile
 #logfile=$HOME/Downloads/access.log
+# Указать полный путь до файла temp.log
 logfile=./temp.log
 #logfile=$1
 
+# Указать полный путь до файла CountLines.txt
 num=$(head -1 ./CountLines.txt)
 #num=$2
 
@@ -44,5 +46,6 @@ set +o noclobber
 echo "Lines was counted in CountLines.txt"
 echo "Before was $num lines"
 count=$(cat $logfile | wc -l)
+# Указать полный путь до файла CountLines.txt
 echo $count > ./CountLines.txt
 echo "Now is $count lines"
