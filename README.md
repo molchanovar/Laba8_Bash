@@ -20,6 +20,14 @@
 * * * * * cat $HOME/<путь до файла>/resultRun.txt | mailx -s 'Completed' localhost
 ```
 
+- В скрипте **script.sh** для корректной работы в кроне - надо добавить полный путь до файлов - **temp.log** и **CountLines.txt** (строчки 6, 10, 50)
+```
+logfile=./temp.log
+num=$(head -1 ./CountLines.txt)
+echo $count > ./CountLines.txt
+```
+
+
 - Дать права на исполнение скриптов и запись в файлы:
 ```
 sudo chmod +x script.sh count.sh 
