@@ -14,10 +14,15 @@
 ### How it works:
 - Проверить что работают службы почты (исп. `mailx`, требуется установка `mailutils` с параметром `localOnly`) и крона `crontab` (все тесты делал на Ubuntu 20.04)
 
-- Скачать репозиторий и добавить строчки в `crontab -e` - запуск скрипта и отправки письма - раз в минуту. 
+- Скачать репозиторий и добавить строчки в `crontab -e` - запуск скрипта и отправки письма - раз в минуту.
 ```
 * * * * * $HOME/Downloads/script.sh >> $HOME/Downloads/resultRun.txt
 * * * * * cat $HOME/Downloads/resultRun.txt | mailx -s 'Completed' localhost
+```
+
+- Дать права на исполнение:
+```
+sudo chmod +x script.sh count.sh 
 ```
 
 - `./count.sh access.log >> temp.log` - Запустить скрипт построчного чтения лога **count.sh** и передать ему на вход лог файл **access.log**. Вывод перенаправить в новый лог файл **temp.log**
