@@ -1,6 +1,29 @@
 # Laba8_Bash
 ## Bash_scripting
 
+
+### How it works:
+- Проверить что работают службы почты (исп. `mailx`, требуется установка `mailutils` с параметром `localOnly`) и крона `crontab` (все тесты на Ubuntu 20.04)
+
+- Скачать репозиторий и добавить строчки в `crontab -e` - запуск скрипта и отправки письма - раз в минуту. 
+```
+* * * * * $HOME/Downloads/script.sh >> $HOME/Downloads/resultRun.txt
+* * * * * cat $HOME/Downloads/resultRun.txt | mailx -s 'Completed' localhost
+```
+
+- `./count.sh access.log >> temp.log` - Запустить скрипт построчного чтения лога **count.sh** и передать ему на вход лог файл **access.log**. Вывод перенаправить в новый лог файл **temp.log**
+
+- Основной скрипт `script.sh` анализирует лог согласно заданию и читает построчно файл **access.log** (номер строки хранится в **CountLines.txt**)
+
+- Результат работы скрипта записывается в файл **resultRun.txt**
+
+- Upd Добавлена зашита от мультизапуска в скрипт:
+```
+# Multi-start protection - switch ON
+set -o noclobber
+```
+
+
 ### Task
 
 Написать скрипт для крона, который раз в час присылает на заданную почту
@@ -15,16 +38,6 @@
 **test.sh** - простой скрипт, выполняет построчное чтение лога, нужен для записи нового лога, который читается скриптом. 
 **access.log** - лог Nginx'а
 
-
-### How it works: 
-- Запуск построчной записи в новый файл с логами `./test.sh access.log >> temp.log`
-
-- Скрипт запускается раз в минуту `* * * * * $HOME/Downloads/script.sh >> %HOME/Downloads/resultRun` и читает построчно файл **access.log** (номер строки хранится в **CountLines.txt**)
-
-- Работа почты тестировалась на Ubuntu 20.04 (установил пакет - `sudo apt install mailutils` с параметром `localOnly`).
-```
-cat $HOME/Downloads/resultRun | mailx -s 'Completed' localhost
-```
 
 должна быть реализована защита от мультизапуска ??? 
 
