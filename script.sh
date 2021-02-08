@@ -5,7 +5,7 @@
 logfile=./temp.log
 #logfile=$1
 
-num=$(head -1 $HOME/Downloads/CountLines.txt)
+num=$(head -1 ./CountLines.txt)
 #num=$2
 
 echo "File $logfile has $num lines in it"
