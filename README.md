@@ -16,8 +16,8 @@
 
 - Скачать репозиторий и добавить строчки в `crontab -e` - запуск скрипта и отправки письма - раз в минуту.
 ```
-* * * * * $HOME/Downloads/script.sh >> $HOME/Downloads/resultRun.txt
-* * * * * cat $HOME/Downloads/resultRun.txt | mailx -s 'Completed' localhost
+* * * * * $HOME/<путь до файла>/script.sh >> $HOME/<путь до файла>/resultRun.txt
+* * * * * cat $HOME/<путь до файла>/resultRun.txt | mailx -s 'Completed' localhost
 ```
 
 - Дать права на исполнение скриптов и запись в файлы:
