@@ -44,5 +44,5 @@ set +o noclobber
 echo "Lines was counted in CountLines.txt"
 echo "Before was $num lines"
 count=$(cat $logfile | wc -l)
-echo $count > CountLines.txt
+echo $count > ./CountLines.txt
 echo "Now is $count lines"
